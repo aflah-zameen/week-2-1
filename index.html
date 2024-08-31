@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest</title>
+    <link rel="icon" href="images/icons/pinterest_favicon_icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+    <style>
+        .nav_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            line-height: 4rem;
+            width: 100%;
+            font-family: sans-serif;
+            font-weight: bolder;
+            color: black;
+            padding-top: 0.5rem;
+            position: fixed;
+            background-color: white;
+
+        }
+
+
+        .left .left_2 a,
+        .right a,
+        .right span {
+            padding-left: 2rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .right {
+            padding-right: 2rem;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            padding-left: 2rem;
+
+        }
+
+        .left span {
+            color: #E60023;
+            font-size: larger;
+        }
+
+        .left .left_1 a {
+            text-decoration: none;
+        }
+
+        .right button {
+            height: 2.5rem;
+            width: 5rem;
+            border-radius: 3rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: bolder;
+        }
+
+        .right .button_1 {
+            background-color: #E60023;
+            color: white;
+        }
+
+        .right .button_1:hover {
+            background-color: brown;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* .sticky{
+        top:0;
+        position: fixed;
+        width: 100%;
+    } */
+
+        /* global-style */
+        .button_2:hover {
+            background-color: #d1d0d0;
+            cursor: pointer;
+        }
+
+        .text_link {
+            text-decoration: none;
+        }
+
+        .text_link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg position-fixed w-100 bg-white z-3 nav_bar p-1 bg-primary" id="nav_bar">
+        <div class="container-fluid  body">
+           
+                <a href="" class="navbar-brand fs-5 fw-bold text-danger ">
+                    <i class="fa fa-pinterest  align-middle fs-1 " style="color: #cc0000;"></i>Pinterest
+                </a>
+                <div class="left ">
+                    <ul class="navbar-nav " style="display: flex; flex-direction: row; gap: 2rem;">
+                        <li class="nav-item me-3 ">
+                            <a href="#" class="nav-link active">Today</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a href="#" class="nav-link active">Watch</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a href="" class="nav-link active">Explore</a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navbar-toggler">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class=" collapse navbar-collapse right  navbar-nav" id="navbarNav">
+                    <ul class=" navbar-nav ms-auto right mt-3" >
+                        <li class="nav-item me-3">
+                            <a href="#" class="nav-link active">About</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a href="#" class="nav-link active">Business</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a href="#" class="nav-link active">Press</a>
+                        </li>
+                        <li class="nav-item me-3 mb-3">
+                            <button type="button" class="btn btn-danger rounded-5 fw-bold" id="log_button">Log&nbsp;in</button>
+                        </li>
+                        <li class="nav-item me-3">
+                            <button type="button" class="btn btn-light rounded-5 fw-bold" id="sign_button">Sign&nbsp;up</button>
+                        </li>
+                    </ul>
+                  </div>
+
+        </div>
+
+
+
+    </nav>
+
+    <!-- homepage-1 -->
+    <div class="page_1 z-1 position-relative overflow-hidden h-100 p-0 ">
+        <div class="update-text">
+
+            <p>Get your next</p>
+            <p id="updatingText"></p>
+        </div>
+        <div class="body container-fluid ">
+
+            <div class="image_container d-flex justify-content-center ">
+                <div class="row " id="imageBody" style="width: 90%;">
+
+                </div>
+            </div>
+            <div class="button_container">
+                <a href="#"> <button class="button" id="bottom_button"><img src="images/icons/down-arrow.png"
+                            alt=""></button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- mobile-viewport-1 -->
+    <div class="mobile-page-1 container-fluid">
+        <div class="container-fluid ">
+            <div class="logo-top">
+                <i class="fa fa-pinterest" style="font-size:3rem;color:rgb(253, 253, 253)"></i>
+            </div>
+            <h1 style="padding: 2rem;">Welcome to Pinterest</h1>
+            <button class="btn btn-danger rounded-5 fw-bolder border-none mb-4" style="width: 14rem; ">Continue with
+                email</button><br>
+            <button class="btn btn-light rounded-5 mb-4" style="width: 14rem;"><img src="images/icons/google.png"
+                    style="width: 1.5rem; height: 1.5rem; "> Continue
+                with Google</button><br>
+            <a href="#" class="text-decoration-none text-white fw-bold ">Already a member? Log in</a>
+            <p class="p-4">Are you a business? <a href="" class="text-decoration-none text-white fw-bold ">Get started
+                    here</a></p>
+            <p style="font-size: small; padding-left: 5rem; padding-right: 5rem;">By continuing, you agree to Pinterest's <a href=""
+                    class="text-decoration-none text-white fw-bold ">Terms of Service
+                </a>and acknowledge that you've read our <a href=""
+                    class="text-decoration-none text-white fw-bold">Privacy
+                    Policy.</a><br><a href="" class="text-decoration-none text-white fw-bold">Notice at collection</a> .
+            </p>
+        </div>
+    </div>
+
+    <!-- bottom -->
+    <div class="bottom position-absolute w-100 bottom-0 d-flex justify-content-center align-items-center z-2"
+        style="background-color:#FFFD92; height: 3rem;">
+        <a href="" class="text-black text-decoration-none fw-bold  align-middle">Here's how is it works <img
+                src="images/icons/down-arrow.svg" style="width: 1rem;" alt=""></a>
+    </div>
+    <!-- 
+    homepage-2 -->
+    <div class="page_2 ">
+     <div class="container-fluid h-100 ">
+        <div class="row h-100 sub-section">
+            <div class="section_1 col-lg-6 col-sm-12 d-flex justify-content-center" >
+                <div class="body position-relative  ratio ratio-1x1 " >
+                    <div class="search_container  ">
+                        <a href="" style="text-decoration: none; color: black;">
+                            <p ><i class="fa fa-search fs-4" ></i>
+                                <span class="fs-4">easy chicken dinner</span>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="image_1 " >
+                        <img src="./images/overlap/1.png" class="img-fluid " alt="" >
+    
+                    </div>
+                    
+                    <div class="image_2">
+                        <img src="./images/overlap/2.png" class="img-fluid " alt="" >
+
+                    </div>
+                    <div class="image_3 ">
+                        <img src="./images/overlap/3.png" class="img-fluid " alt="" >
+
+                    </div>
+                    <div class="image_4 ">
+                        <img src="./images/overlap/4.png" class="img-fluid " alt="" >
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="section_2 col-lg-6 position-relative col-sm-12 " >
+                <div class="context w-75 d-flex flex-column justify-content-end">
+                    <div class="header-text text-center ">
+                        <h1>Search for an idea</h1>
+                    </div>
+                    <div class="content-paragraph overflow-auto">
+                        <p>What do you want to try next? Think of something you're into - such as 'easy chicken dinner' - and
+                            see what you find.
+                        </p>
+                    </div>
+                    <div class="button_container d-flex justify-content-center ">
+                        <button class="btn btn-danger  fs-6 fw-bold">Explore</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+     </div>
+    </div>
+
+
+
+    <!-- homepage-3 -->
+
+    <div class="page_3 ">
+        <div class="contanier-fluid h-100">
+            <div class="row h-100 w-100">
+                <div class="section_1 col-lg-6 position-relative col-sm-12 p-0">
+                    <div class="context w-75 d-flex flex-column ">
+                        <div class="header-text text-center">
+                              <h1>Save ideas you like</h1>
+                        </div>
+                        <div class="content-paragraph overflow-hidden">
+                            <p class="fs-4">Collect your favourites so you can get back to them later.</p>
+                        </div>
+                        <div class="button_container d-flex justify-content-center">
+                            <button class="btn btn-danger  fs-6 fw-bold">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="section_2 col-lg-6 col-sm-12 d-flex justify-content-around position-relative p-0">
+                    <div class="body ">
+                        <div class="image_1">
+                            <a href="">
+                                <img src="./images/overlap/2-1.png" class="img-fluid alt="">
+                                <div class="coverText">
+                                    <span>Fern future home vibes</span>
+                                </div>
+                                <div class="image_1_container">
+                                    <div class="image image_1_1">
+                                        <img src="./images/overlap/2-1-1.png" alt="">
+                                    </div>
+                                    <div class="image image_1_2">
+                                        <img src="./images/overlap/2-1-2.png" alt="">
+                                    </div>
+                                    <div class="image image_1_3">
+                                        <img src="./images/overlap/2-1-3.png" alt="">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="image_2">
+                            <a href="">
+                                <img src="./images/overlap/2-2.png" alt="">
+                                <div class="coverText">
+                                    <span>My Scandinavian bedroom</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="image_3">
+                            <a href="">
+                                <img src="./images/overlap/2-3.png" alt="">
+                                <div class="coverText">
+                                    <span>The decking of my dreams</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="image_4">
+                            <a href="">
+                                <img src="./images/overlap/2-4.png" alt="">
+                                <div class="coverText">
+                                    <span>Our bathroom upgrade</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="image_5">
+                            <a href="">
+                                <img src="./images/overlap/2-5.png" alt="">
+                                <div class="coverText">
+                                    <span>Serve my drinks in style</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- homepage-4 -->
+
+    <div class="page_4">
+        <div class="contanier-fluid h-100 w-100 ">
+            <div class="row h-100 p-0 m-0 ">
+                <div class="section_1 col-lg-6 col-sm-12 position-relative p-0 ">
+
+                    <div class="overlap-image">
+                        <div class="image_1">
+                            <img src="./images/overlap/4-2.png" alt="">
+                        </div>
+                        <div class="image_2">
+                            <img src="./images/overlap/4-3.png" alt="">
+                        </div>
+                        <span>
+                            <h4>Scout the City</h4>
+                            <p>56.7k followers</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="section_2 col-lg-6 position-relative col-sm-12 p-0">
+                    <div class="context">
+                        <h1>See it, make<br> it, try it, do it</h1>
+                        <p> The best part of Pinterest is discovering new things and ideas from people around the world.</p>
+                        <div class="button_container">
+                            <a href=""> <button class="button_1">Explore</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- homepage-5 -->
+    <div class="page_5">
+        <div class="container-fluid h-100 w-100 p-0">
+            <div class="row p-0 m-0 h-100 w-100">
+                <div class="section_1 col-6 p-0 position-relative h-100">
+                    <div class="context">
+                        <p>Sign up to get your ideas</p>
+                    </div>
+                </div>
+                <div class="section_2 col-6 p-0 position-relative ">
+                    <div class="signupForm ">
+                        <div class="header">
+                            <div class="logo">
+                                <i class="fa fa-pinterest" style="font-size:2.5rem;color:red"></i>
+                            </div>
+                            <h2>Welcome to Pinterest</h2>
+                            <p>Find new ideas to try</p>
+                        </div>
+                        <div class="body">
+                            <form action="" class="d-flex align-items-center flex-column">
+                                <div class="email w-75">
+                                    <label>Email address</label>
+                                    <input type="email" placeholder="Email address">
+                                </div>
+                                <div class="password w-75">
+                                    <label>Password</label>
+                                    <input type="password" placeholder="Create a password">
+                                </div>
+                                <div class="dob w-75">
+                                    <label for="">Date of birth </label>
+                                    <input type="date">
+                                </div>
+                                <div class="button_container w-75">
+                                    <a href=""><button class="button_1">continue</button></a>
+                                </div>
+                                <div class="or">OR</div>
+                                <div class="button_3 w-75">
+                                    <button><img src="images/icons/google.png" style="width: 1.5rem; height: 1.5rem; ">Continue
+                                        with Google</button>
+                                </div>
+                                <div class="bottom">
+                                    <p >By continuing, you agree to Pinterest's <a href="" class="text_link">Terms of Service
+                                        </a>and acknowledge that you've read our <a href="" class="text_link">Privacy
+                                            Policy</a>. <a href="" class="text_link">Notice at collection</a> .</p>
+                                    <span class="login">Already a member? <a href="" style="text-decoration: none;"><b>Log
+                                                in</b></a></span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="footer" >
+                            <button style="border-radius: 0rem 0rem 2rem 2rem; ">Create a free business account</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="homepage_footer col-12 ">
+                    <a href="" class="text_link">Terms of Service</a>
+                    <a href="" class="text_link">Privacy Policy</a>
+                    <a href="" class="text_link">iPhone app</a> 
+                    <a href="" class="text_link">Android app</a>
+                    <a href="" class="text_link">Users</a>
+                    <a href="" class="text_link">Collections</a>
+                    <a href="" class="text_link">Shopping</a>
+                    <a href="" class="text_link">Today</a>
+                    <a href="" class="text_link">Explore</a>
+                    <a href="" class="text_link">Watch</a>
+                    <a href="" class="text_link">Shop</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+      <!-- mobile-viewport-2 -->
+      <div class="mobile-page-2 container-fluid position-relative p-0">
+        <div class="body position-absolute w-100">
+            <div class="logo-top">
+                <i class="fa fa-pinterest" style="font-size:3rem;color:rgb(253, 253, 253)"></i>
+            </div>
+            <h1 style="padding: 2rem;">Sign up to explore the world's best ideas </h1>
+            <button class="btn btn-danger rounded-5 fw-bolder border-none mb-4" style="width: 14rem; ">Continue with
+                email</button><br>
+            <button class="btn btn-light rounded-5 mb-4" style="width: 14rem;"><img src="images/icons/google.png"
+                    style="width: 1.5rem; height: 1.5rem; "> Continue
+                with Google</button><br>
+            <a href="#" class="text-decoration-none text-white fw-bold ">Already a member? Log in</a>
+            <p class="p-4">Are you a business? <a href="" class="text-decoration-none text-white fw-bold ">Get started
+                    here</a></p>
+            <p style="font-size: small; padding-left: 5rem; padding-right: 5rem;">By continuing, you agree to Pinterest's <a href=""
+                    class="text-decoration-none text-white fw-bold ">Terms of Service
+                </a>and acknowledge that you've read our <a href=""
+                    class="text-decoration-none text-white fw-bold">Privacy
+                    Policy.</a><br><a href="" class="text-decoration-none text-white fw-bold">Notice at collection</a> .
+            </p>
+        </div>
+        <div class="mobile_footer ">
+            <a href="" class="text_link">User</a>
+            <a href="" class="text_link">Collections</a>
+            <a href="" class="text_link">Shopping</a> 
+            <a href="" class="text_link">Today</a>
+            <a href="" class="text_link">Explore</a>
+            <a href="" class="text_link">Watch</a>
+            <a href="" class="text_link">Shop</a>
+        </div>
+    </div>
+    <!-- bootstrap-javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
+
+<script>
+    //declarations
+    var count = 0;
+    var paragraph = document.getElementById("updatingText");
+    var image_array = [
+        ['images/chai_time/1.jpeg', 'images/chai_time/2.jpeg', 'images/chai_time/3.jpeg', 'images/chai_time/4.jpeg', 'images/chai_time/5.jpeg', 'images/chai_time/6.jpeg', 'images/chai_time/7.jpeg', 'images/chai_time/8.jpeg', 'images/chai_time/9.jpeg', 'images/chai_time/10.jpeg', 'images/chai_time/11.jpeg', 'images/chai_time/12.jpeg', 'images/chai_time/13.jpeg', 'images/chai_time/14.jpeg', 'images/chai_time/15.jpeg'],
+        ['images/home_decor/__ 40 HOT Small Living Room Trends You Need to See in 2024__.jpeg', 'images/home_decor/3BHK Gandhinagar Home Designed With Simplicity And Harmony _ Spaxis Design.jpeg', 'images/home_decor/10 Stunning Bedroom Refresh Ideas.jpeg', 'images/home_decor/26 Retro Style Living Room Ideas_ Embrace Nostalgia and Modern Design - Tips and Inspiration - placeideal_com.jpeg', 'images/home_decor/AD Small Spaces_ This 980-square-foot Bengaluru home is filled with space-saving solutions.jpeg', 'images/home_decor/India Interior Design.jpeg', 'images/home_decor/14.jpeg', 'images/home_decor/13.jpeg', 'images/home_decor/12.jpeg', 'images/home_decor/11.jpeg', 'images/home_decor/10.jpeg', 'images/home_decor/9.jpeg', 'images/home_decor/8.jpeg', 'images/home_decor/14.jpeg'],
+        ['images/outfit_ideas/0e43de19-53c5-48a9-9956-bddcdc5b93d8.jpeg', 'images/outfit_ideas/15 Must-Have Fall Travel Outfits_ Your Ultimate Guide to an Autumn Getaway.jpeg', 'images/outfit_ideas/791648440782573936.jpeg', 'images/outfit_ideas/Aging Gracefully_ Tips For Embracing Your Age _ Click to Read.jpeg', 'images/outfit_ideas/ee3ecbe6-c45e-4171-911f-a7821fc9e6ca.jpeg', 'images/outfit_ideas/How Street Wear is Changing the Fashion Landscape.jpeg', 'images/outfit_ideas/What to Wear in London_ Your Ultimate Guide for Stylish Comfort Year-Round.jpeg', 'images/outfit_ideas/14.jpeg', 'images/outfit_ideas/13.jpeg', 'images/outfit_ideas/12.jpeg', 'images/outfit_ideas/11.jpeg', 'images/outfit_ideas/13.jpeg', 'images/outfit_ideas/13.jpeg', 'images/outfit_ideas/8.jpeg', 'images/outfit_ideas/9.jpeg'],
+        ['images/diy_ideas/20fa0ee4-95b8-4fd0-9b6c-d739c2d5d9ef.jpeg', 'images/diy_ideas/34c2e366-81a6-4577-90df-41fd59b6dc03.jpeg', 'images/diy_ideas/50+ Best DIY Kids Reading Nook Ideas To Inspire.jpeg', 'images/diy_ideas/bottle Glass bottle crafts Wine bottle.jpeg', 'images/diy_ideas/gift idea_.jpeg', 'images/diy_ideas/Masterpieces at Home_ Unleashing Your Inner Artist in Home Decor.jpeg', 'images/diy_ideas/Personalised Anniversary gifts.jpeg', 'images/diy_ideas/14.jpeg', 'images/diy_ideas/13.jpeg', 'images/diy_ideas/12.jpeg', 'images/diy_ideas/11.jpeg', 'images/diy_ideas/10.jpeg', 'images/diy_ideas/9.jpeg', 'images/diy_ideas/8.jpeg', 'images/outfit_ideas/10.jpeg', 'images/outfit_ideas/9.jpeg', 'images/outfit_ideas/8.jpeg']
+    ];
+    var string = ["chai time snacks idea", "home décor idea", "outfit idea", "DIY idea"];
+    var color = ["rgb(194, 139, 0)", "rgb(0, 118, 211)", "rgb(81, 140, 123)", "rgb(80, 122, 87)"]
+    var button = document.getElementById("bottom_button");
+
+    //functions 
+
+    function updatingText() {
+        return new Promise((resolve, reject) => {
+            paragraph.style.color = color[count];
+            button.style.backgroundColor = color[count];
+            paragraph.textContent = string[count];
+            count++;
+            if (count > string.length - 1) {
+                count = 0;
+            }
+            resolve(1);
+            reject(0);
+        });
+    }
+
+
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+
+    function loadImage(path) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.src = path;
+            img.alt = "https://pin.it/3YGYRZ2O9";
+
+            img.onload = function () {
+                resolve(img);
+            };
+            img.onerror = () => reject(new Error(`Failed to load images`));
+        });
+    }
+
+    async function loadImageSequentially(ImagePaths) {
+
+        let flag = new Promise(async (resolve, reject) => {
+            for (let j = 0; j < 12; j++) {
+                var element = document.createElement('div');
+                element.className = 'image z-0 col-6 mb-3 me-2 m-auto';
+                element.style.width = 'fit-content';
+                var parent_ID = document.getElementById('imageBody');
+                // var image_code = '<img src='+image_array[i][j]+' alt="https://pin.it/4Qr2ofrxr" >';
+                // element.innerHTML=image_code;
+                try {
+                    const img = await loadImage(ImagePaths[j]);
+                    element.appendChild(img);
+                    parent_ID.appendChild(element);
+                    await delay(50);
+                } catch (error) {
+                    console.error();
+                }
+
+            }
+            resolve(1);
+            reject(0);
+        });
+        if (flag)
+            await updatingText();
+        else
+            console.log("Error occured in display images");
+    }
+
+    async function loadEachPage(imageArray) {
+
+        for (let i = 0; i < 4; i++) {
+            document.getElementById('imageBody').innerHTML = '';
+            await loadImageSequentially(imageArray[i]);
+            await delay(3000);
+
+
+        }
+
+    }
+
+    loadEachPage(image_array);
+    setInterval(() => loadEachPage(image_array), 12000)
+
+
+
+
+
+
+
+</script>
+
+<!-- <script>
+    const nav=document.getElementById("nav_bar");
+    let nav_top=nav.offsetTop;
+    console.log(nav_top);
+    function sticky(){
+        if(window.scrollY >= nav_top)
+    {
+        nav.classList.add('sticky');
+    }
+    else{
+        nav.classList.remove('sticky');
+
+    }
+    }
+    window.addEventListener('scroll',sticky);
+
+</script> -->
