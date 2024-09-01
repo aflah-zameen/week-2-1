@@ -9,10 +9,6 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
-/* .homepage{
-    width: 100%;
-    height: 100%;
-} */
 
 .mobile-page-1{
     width: 100%;
@@ -55,33 +51,6 @@ body{
     animation: fadeInMoveFadeOut 3s ease-in infinite;
 
 }
-/* .page_1 .body  {
-    position: relative;
-    display: flex;
-    height:43rem;
-    width:100%;
-}  */
-/* .page_1 .body .image_container{
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    max-height: 100%;
-    align-items: center;
-    width: fit-content;
-    padding-top: 4rem;
-    margin-left: 4.5rem;
-    overflow: hidden;
-    z-index: 0;
-} */
-/* .bottom{
-    box-shadow: 0 -2rem 2rem rgba(255, 255, 255, 0.911); 
-} */
-/* .page_1 .body .bottom a{
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-} */
 
 @keyframes fadeOut_1 {
 
@@ -99,11 +68,6 @@ body{
     }
 }
 
-/* .page_1 .body .image_container .image {
-    padding-top:3rem ;
-    padding-right: 2rem;
-
-} */
 @keyframes fadeInMoveFadeOut {
     0% {
         opacity: 0;
@@ -287,11 +251,11 @@ text-align: center;
     object-fit: cover;
 }
 
-/* .page_2 .section_2 .context .button_container button:hover
+.page_2 .section_2 .context .button_container button:hover
 {
     background-color: brown;
     cursor: pointer;
-} */
+}
 
 /* homepage-3 */
 
